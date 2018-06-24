@@ -1,240 +1,476 @@
-<html><head>
+<html>
+
+<head>
     <title>Eurocode</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="index.css" rel="stylesheet" type="text/css">
-        <link href="menu.css" rel="stylesheet" type="text/css">
-        
-        <!-- Stylowanie chekbox'ów wg https://codepen.io/hansmaad/pen/qaGrQL by Hannes Kamecke https://codepen.io/hansmaad -->
-        <link href="checkbox.css" rel="stylesheet" type="text/css">
-        <!-- Koniec stylowania checkbox'ów -->
 
-        <script src="menu.js"></script>
-  </head><body>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="menu.css" rel="stylesheet" type="text/css">
+
+    <!-- Stylowanie chekbox'ów wg https://codepen.io/hansmaad/pen/qaGrQL by Hannes Kamecke https://codepen.io/hansmaad -->
+    <link href="checkbox.css" rel="stylesheet" type="text/css">
+    <!-- Koniec stylowania checkbox'ów -->
+
+    <script src="menu.js"></script>
+</head>
+
+<body>
     <!-- nawigacja -->
     <div class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><span>Brand</span></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span>Brand</span></a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active">
-              <a href="#" onclick="pokazDanePodstawowe()">Dane podstawowe</a>
-            </li>
-            <li class="active">
-              <a href="#" onclick="pokazMaterialy()">Materiały palne</a>
-            </li>
-            <li class="active">
-              <a href="#" onclick="pokazFaktor()">Współczynniki</a>
-            </li>
-            <li class="active">
-              <a href="#">Home</a>
-            </li>
-          </ul>
+            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="disabled">
+                        <a href="#"></a>
+                    </li>
+                    <li class="active">
+                        <a href="#" onclick="pokazDanePodstawowe()">Dane podstawowe</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" onclick="pokazMaterialy()">Materiały palne</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" onclick="pokazFaktor()">Współczynniki</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" onclick="licz();">LICZ </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-<!-- koniec nawigacji -->
+    <!-- koniec nawigacji -->
 
     <!-- treść -->
 
     <!-- dane podstawowe -->
     <div class="section" id="danePodstawowe">
-      <div class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1 class="text-center">Dane podstawowe</h1>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Dane podstawowe</h1>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <form role="form">
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputEmail1">Wielkość powierzchni strefy pożarowej [m
-                    <sup>2</sup>]</label>
-                  <input class="form-control" id="exampleInputEmail1" type="text">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">Wielkość powierzchni strefy pożarowej [m<sup>2</sup>]</label>
+                                <input class="form-control" id="exampleInputEmail1" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Powierzchnia całkowita [m<sup>2</sup>]</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Powierzchnia pionowych otworów w ścianach wewnętrznych [m<sup>2</sup>]</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Powierzchnia poziomych otworów w dachu [m<sup>2</sup>]</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Wysokość strefy pożarowej [m]</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Średnia ważona wysokości okien całkowita [m<sup>2</sup>]</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputPassword1">Powierzchnia całkowita [m<sup>2</sup>]</label>
-                  <input class="form-control" id="exampleInputPassword1" type="text">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputPassword1">Powierzchnia pionowych otworów w ścianach wewnętrznych [m<sup>2</sup>]</label>
-                  <input class="form-control" id="exampleInputPassword1" type="text">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputPassword1">Powierzchnia poziomych otworów w dachu [m<sup>2</sup>]</label>
-                  <input class="form-control" id="exampleInputPassword1" type="text">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputPassword1">Wysokość strefy pożarowej [m]</label>
-                  <input class="form-control" id="exampleInputPassword1" type="text">
-                </div>
-                <div class="form-group">
-                  <label class="control-label" for="exampleInputPassword1">Średnia ważona wysokości okien całkowita [m<sup>2</sup>]</label>
-                  <input class="form-control" id="exampleInputPassword1" type="text">
-                </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
     </div>
- <!-- koniec danych podstawowych -->
-  
- <!-- współczynniki -->
- <div class="section ukryty" id="faktor">
-  <div class="section">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <h1 class="text-center">Współczynniki</h1>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="section">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <form role="form">
-                      <div class="form-group">
-                          <label class="control-label" for="exampleInputEmail1">Współczynnik określający zabezpieczone obciążenie ogniowe</label>
-                          <input class="form-control" id="exampleInputEmail1" type="text" placeholder="1">
-                      </div>
-                      <div class="form-group">
-                          <label class="control-label" for="exampleInputPassword1">Współczynnik spalania</label>
-                          <input class="form-control" id="exampleInputPassword1" type="text" placeholder="0.8">
-                      </div>
-                      <div class="form-group">
-                          <div class="btn-group" data-toggle="buttons">
-                              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Sposób użytkowania <i class="fa fa-caret-down"></i></a>
-                              <ul class="dropdown-menu" role="menu">
-                                  <li>
-                                      <a href="#">galeria sztuki</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">muzeum</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">basen</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">biuro</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">mieszkanie</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">hotel</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">przemysł papierniczy</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">wytwórnia maszyn i silników</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">laboratorium chemiczne</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">warsztat malarski</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">wytwórnia fajerwerków</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">wytwórnia farb</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </form>
-                  <div class="btn-group" data-toggle="buttons">
-                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Materiał konstrukcyjny <i class="fa fa-caret-down"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="#">żelbet</a>
-                          </li>
-                          <li>
-                              <a href="#">stal zebezpieczona</a>
-                          </li>
-                          <li>
-                              <a href="#">stal niezabezpieczona</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-12">
-                  <label class="control-label" for="exampleInputPassword1">Czynne środki ochrony przeciwpożarowej</label>
-                  <ul class="list-unstyled">
-                      <li>
-                          <input type="checkbox"> samoczynne urzadzenia gaśnicze wodne</li>
-                      <li>
-                          <input type="checkbox"> samoczynna detekcja ciepła</li>
-                      <li>
-                          <input type="checkbox"> samoczynna detekcja dymu</li>
-                      <li>
-                          <input type="checkbox"> samoczynna transmisja alaramu do straży pożarnej</li>
-                      <li>
-                          <input type="checkbox"> zakładowa straż pożarna</li>
-                      <li>
-                          <input type="checkbox"> publiczna straż pożarna</li>
-                      <li>
-                          <input type="checkbox"> bezpieczne pożarowe drogi dostępu</li>
-                      <li>
-                          <input type="checkbox"> urządzenia przeciwpożarowe</li>
-                      <li>
-                          <input type="checkbox"> systemy oddymiania</li>
-                  </ul>
+    <!-- koniec danych podstawowych -->
 
-                  <div class="btn-group" data-toggle="buttons">
-                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> niezależne zaopatrzenie wodne <i class="fa fa-caret-down"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="#">0</a>
-                          </li>
-                          <li>
-                              <a href="#">1</a>
-                          </li>
-                          <li>
-                              <a href="#">2</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
- <!-- materiały -->
-<div class="section" id="material">
-
-</div>
- <!-- koniec materiałów -->
-
- <!--wyniki -->
-<div class="section" id="wyniki">
+    <!-- współczynniki -->
+    <div class="section ukryty" id="faktor">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Współczynniki</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputEmail1">Współczynnik określający zabezpieczone obciążenie ogniowe</label>
+                                <input class="form-control" id="exampleInputEmail1" type="text" placeholder="1">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="exampleInputPassword1">Współczynnik spalania</label>
+                                <input class="form-control" id="exampleInputPassword1" type="text" placeholder="0.8">
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Sposób użytkowania <i class="fa fa-caret-down"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">galeria sztuki</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">muzeum</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">basen</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">biuro</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">mieszkanie</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">hotel</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">przemysł papierniczy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">wytwórnia maszyn i silników</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">laboratorium chemiczne</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">warsztat malarski</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">wytwórnia fajerwerków</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">wytwórnia farb</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="btn-group" data-toggle="buttons">
+                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Materiał konstrukcyjny <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">żelbet</a>
+                                </li>
+                                <li>
+                                    <a href="#">stal zebezpieczona</a>
+                                </li>
+                                <li>
+                                    <a href="#">stal niezabezpieczona</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 odstep">
+                        <div>
+                            <label class="control-label odstep-bottom" for="exampleInputPassword1">Czynne środki ochrony przeciwpożarowej</label>
+                        </div>
+                        <div class="btn-group" data-toggle="buttons">
+                            <div>
+                                <a class="btn btn-default dropdown-toggle odstep-bottom inline" data-toggle="dropdown"> niezależne zaopatrzenie wodne <i class="fa fa-caret-down"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">0</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="checkbox"> samoczynne urzadzenia gaśnicze wodne</li>
+                            <li>
+                                <input type="checkbox"> samoczynna detekcja ciepła</li>
+                            <li>
+                                <input type="checkbox"> samoczynna detekcja dymu</li>
+                            <li>
+                                <input type="checkbox"> samoczynna transmisja alaramu do straży pożarnej</li>
+                            <li>
+                                <input type="checkbox"> zakładowa straż pożarna</li>
+                            <li>
+                                <input type="checkbox"> publiczna straż pożarna</li>
+                            <li>
+                                <input type="checkbox"> bezpieczne pożarowe drogi dostępu</li>
+                            <li>
+                                <input type="checkbox"> urządzenia przeciwpożarowe</li>
+                            <li>
+                                <input type="checkbox"> systemy oddymiania</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-</div>
- <!-- koniec wyników -->
+    <!-- materiały -->
+    <div class="section ukryty" id="material">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <h1 class="text-center">Materiały palne</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <!-- Materiał #1 -->
+                <div class="row" id="material1">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 1</label>
+                        <div class="input-group">
+                            <input class="form-control" id="subst1" type="text">
+                            <div class="input-group-addon" id="tooltip1" onclick="przypisz1();">?</div>
+                            <div id="tooltip1a" class="schowany tooltip">test</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="masa1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #1 -->
+
+                <!-- Materiał #2 -->
+                <div class="row" id="material2">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 2</label>
+                        <div class="input-group">
+                            <input class="form-control" id="subst1" type="text">
+                            <div class="input-group-addon" onclick="przypisz1();">?</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #2 -->
+
+                <!-- Materiał #3 -->
+                <div class="row" id="material3">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 3</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #3 -->
+
+                <!-- Materiał #4 -->
+                <div class="row" id="material4">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 4</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #4 -->
+
+                <!-- Materiał #5 -->
+                <div class="row" id="material5">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 5</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #5 -->
+
+                <!-- Materiał #6 -->
+                <div class="row" id="material6">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 6</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #6 -->
+
+                <!-- Materiał #7 -->
+                <div class="row" id="material7">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 7</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #7 -->
+
+                <!-- Materiał #8 -->
+                <div class="row" id="material8">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 8</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #8 -->
+
+                <!-- Materiał #9 -->
+                <div class="row" id="material9">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+                        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 9</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #9 -->
+
+                <!--Materiał #10 -->
+                <div class="row" id="material10">
+                    <div class="col-md-1 col-sm-1 col-lg-1">
+
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputEmail1">Substancja nr 10</label>
+                        <input class="form-control" id="exampleInputEmail1" type="text">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
+                        <input class="form-control" id="exampleInputPassword1" type="number">
+                    </div>
+                </div>
+                <!-- Koniec materiału #10 -->
+
+            </div>
+        </div>
+    </div>
+    </div>
 
 
-</body></html>
+    <!-- koniec materiałów -->
+
+    <!--wyniki -->
+    <div class="section" id="wyniki">
+
+    </div>
+    <!-- koniec wyników -->
+
+
+</body>
+
+</html>

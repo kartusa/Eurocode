@@ -71,3 +71,22 @@ function pokazWyniki() {
     //el_wyniki.classList.add("nieukryty");
     el_wyniki.classList.remove("ukryty");
 }
+
+function przypisz1() {
+    var x = document.getElementById('subst1').value;
+    x = x.toUpperCase();
+    var y = 0;
+    switch(x) {
+        case 'WĘGIEL': 
+            y = 40;
+            break;
+        case 'PAPIER':
+            y = 35;
+            break;
+        default:
+            alert("Nie znaleziono substancji w bazie!");
+    }
+    document.getElementById('masa1').value = y;
+    console.log("subst = " + x + ". Masa = " + y);
+}
+
