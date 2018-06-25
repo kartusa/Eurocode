@@ -72,6 +72,25 @@ function pokazWyniki() {
     el_wyniki.classList.remove("ukryty");
 }
 
+function zmienKolorLicz() {
+    var licz = document.getElementById("licz");
+    licz.style.background = "#fff";
+    licz.style.color = "#42649f";
+}
+
+function zmienKolorLicz1() {
+    var liczButton = document.getElementById("licz");
+    liczButton.style.background = "#42649f";
+    liczButton.style.color = "#fff";
+}
+
+window.onload = function() {
+    var liczButton = document.getElementById("licz");
+    liczButton.addEventListener("mouseover", zmienKolorLicz);
+    liczButton.addEventListener("mouseout", zmienKolorLicz1);
+}
+
+
 function przypisz1() {
     var x = document.getElementById('subst1').value;
     x = x.toUpperCase();
@@ -88,5 +107,9 @@ function przypisz1() {
     }
     document.getElementById('masa1').value = y;
     console.log("subst = " + x + ". Masa = " + y);
+}
+
+function licz() {
+    alert("LICZ");
 }
 

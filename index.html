@@ -32,26 +32,26 @@
             </button>
             <a class="navbar-brand" href="#"><span>Brand</span></a>
         </div>
-            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="disabled">
-                        <a href="#"></a>
-                    </li>
-                    <li class="active">
-                        <a href="#" onclick="pokazDanePodstawowe()">Dane podstawowe</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" onclick="pokazMaterialy()">Materiały palne</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" onclick="pokazFaktor()">Współczynniki</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" onclick="licz();">LICZ </a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav">
+                <li class="disabled">
+                    <a href="#"></a>
+                </li>
+                <li class="active">
+                    <a href="#" onclick="pokazDanePodstawowe()">Dane podstawowe</a>
+                </li>
+                <li class="active">
+                    <a href="#" onclick="pokazMaterialy()">Materiały palne</a>
+                </li>
+                <li class="active">
+                    <a href="#" onclick="pokazFaktor()">Współczynniki</a>
+                </li>
+                <li class="active">
+                    <a href="#" onclick="licz();" id="licz">LICZ </a>
+                </li>
+            </ul>
         </div>
+    </div>
     </div>
     <!-- koniec nawigacji -->
 
@@ -235,7 +235,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- materiały -->
     <div class="section ukryty" id="material">
         <div class="section">
@@ -251,10 +251,7 @@
             <div class="container">
                 <!-- Materiał #1 -->
                 <div class="row" id="material1">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 1</label>
                         <div class="input-group">
                             <input class="form-control" id="subst1" type="text">
@@ -262,11 +259,11 @@
                             <div id="tooltip1a" class="schowany tooltip">test</div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="masa1" type="number">
                     </div>
@@ -275,21 +272,18 @@
 
                 <!-- Materiał #2 -->
                 <div class="row" id="material2">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 2</label>
                         <div class="input-group">
                             <input class="form-control" id="subst1" type="text">
                             <div class="input-group-addon" onclick="przypisz1();">?</div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -298,18 +292,15 @@
 
                 <!-- Materiał #3 -->
                 <div class="row" id="material3">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 3</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -318,18 +309,15 @@
 
                 <!-- Materiał #4 -->
                 <div class="row" id="material4">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 4</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -338,18 +326,15 @@
 
                 <!-- Materiał #5 -->
                 <div class="row" id="material5">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 5</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -358,18 +343,15 @@
 
                 <!-- Materiał #6 -->
                 <div class="row" id="material6">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 6</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -378,18 +360,15 @@
 
                 <!-- Materiał #7 -->
                 <div class="row" id="material7">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 7</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -398,18 +377,15 @@
 
                 <!-- Materiał #8 -->
                 <div class="row" id="material8">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 8</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -418,18 +394,15 @@
 
                 <!-- Materiał #9 -->
                 <div class="row" id="material9">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 9</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
@@ -438,18 +411,15 @@
 
                 <!--Materiał #10 -->
                 <div class="row" id="material10">
-                    <div class="col-md-1 col-sm-1 col-lg-1">
-
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputEmail1">Substancja nr 10</label>
                         <input class="form-control" id="exampleInputEmail1" type="text">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Masa [kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
-                    <div class="col-md-3 col-sm-3 col-lg-3">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
                         <label class="control-label" for="exampleInputPassword1">Ciepło spalania [kJ/kg]</label>
                         <input class="form-control" id="exampleInputPassword1" type="number">
                     </div>
